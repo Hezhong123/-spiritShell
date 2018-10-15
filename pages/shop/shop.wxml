@@ -1,0 +1,18 @@
+<!--pages/shop/shop.wxml-->
+<view>
+
+  <!-- 轮播内容 -->
+  <view class='luns' >
+  </view>
+
+  <!-- 书签 -->
+  <view class='book'>
+    <view class='bookItem' wx:for="{{[1]}}" >
+      <image class='bookImg'></image>
+      <text class='text-df text2 gray-text'>精神の壳</text>
+      <view class='goods-list-price'>6
+        <text class='gray-text'>15</text>
+      </view>
+    </view>
+  </view>
+</view>

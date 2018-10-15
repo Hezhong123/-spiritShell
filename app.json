@@ -1,12 +1,30 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/shell/shell",
+    "pages/shop/shop",
+    "pages/getShell/getShell",
+    "pages/postShell/postShell",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#dd413a",
     "navigationBarTitleText": "WeChat",
+    "navigationStyle": "custom",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "精神の壳"
+    },
+    {
+      "pagePath": "pages/shop/shop",
+      "text": "店"
+    }],
+    "backgroundColor": "#dd413a",
+    "color": "#ffffff",
+    "selectedColor": "#fff"
   }
 }

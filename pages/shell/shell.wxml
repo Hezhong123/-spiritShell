@@ -1,0 +1,11 @@
+<!--pages/shell/shell.wxml-->
+<view>
+  <view class='fms'>
+  </view>
+
+  <view class='textRow' wx:for="{{[1,1,1,1,1,1,1,1,1,1]}}">
+    <view class='ds'></view>
+    <view class='text-xl gray-text text2 ' >sdsdsdsdsdsds书签标题 {{index}}  </view>
+  </view>
+
+</view>
