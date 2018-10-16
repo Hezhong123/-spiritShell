@@ -1,1 +1,45 @@
 /* pages/postShell/postShell.wxss */
+pages{
+  background-color: #a8a8a8;
+}
+.fms{
+  width: 100vw;
+  height: 160px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid #dd413a;
+  background-color: #dd413a;
+  margin-bottom: 15px;
+  padding-top: 80px;
+}
+.color1{
+  color: #ffffff;
+}
+
+.rows{
+  width: 90vw;
+  margin-left: 5vw;
+}
+
+.lts{
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 5px; 
+}
+
+.textRow{
+  display: flex;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+.ds{
+  width: 10px;
+  height: 10px;
+  border-radius:20px; 
+  background-color: #dd413a;
+  margin-right: 10px;
+  margin-top: 7px;
+}

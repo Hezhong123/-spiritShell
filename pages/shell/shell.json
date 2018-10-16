@@ -1,4 +1,7 @@
 {
+  "usingComponents": {
+    "retun": "../../components/return/return"
+  },
   "backgroundTextStyle": "dark",
   "navigationStyle": "custom", 
   "navigationBarTextStyle": "white"

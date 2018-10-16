@@ -2,7 +2,6 @@
 pages{
   background-color: #a8a8a8;
 }
-
 .fms{
   width: 100vw;
   height: 160px;
@@ -17,7 +16,6 @@ pages{
   display: flex;
   padding-top: 10px;
   padding-left: 15px;
-  padding-bottom: 10px;
   margin-bottom: 5px;
   background-color: #fff;
 }

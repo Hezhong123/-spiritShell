@@ -1,1 +1,33 @@
 /* pages/getShell/getShell.wxss */
+pages{
+  background-color: #a8a8a8;
+}
+.swiper-screen {
+  min-height: 160px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.textColor{
+  color: #dd413a;
+}
+
+.textColors{
+  color: #fff;
+  height: 36px;
+  font-size: 1rem;
+  background-color: #dd413a;
+}
+
+.fms{
+  width: 100vw;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.itmimg{
+  width: 100%;
+}
+
+.bodys{
+  width: 90vw;
+  margin-left: 5vw;
+}

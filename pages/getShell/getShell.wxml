@@ -1,2 +1,44 @@
 <!--pages/getShell/getShell.wxml-->
-<text>pages/getShell/getShell.wxml</text>
+<scroll-view>
+  <retun></retun>
+  <!-- <view class='fms'>
+  </view> -->
+
+  <swiper class='swiper-screen mb-df' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#dd413a">
+    <swiper-item class="fms" wx:for="1234">
+      <image class='itmimg' src="http://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill' />
+    </swiper-item>
+  </swiper>
+
+  <view class='bodys'>
+    <view class='mb-df'>
+      <text class='text-xl gray-text'> 标题速度速度</text>
+    </view>
+
+    <view  class='mb-xl'>
+      <text class='text-df grays-text'> 标题速度速度 标题速度速度标题速度 \n \n 速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度\n 标题速度速度标题速度速度</text>
+    </view>
+    
+    <view class='flex justify-end pt-xl'> 
+        <view>
+          <view class='flex justify-end mb-sm align-center'>
+            <image src='http://image.weilanwl.com/img/square-2.jpg' mode='widthFix' class='round mr-sm img-sm'></image>
+            <text class='text-lg mt-xs  mr-sm textColor'>hez</text>
+          </view>
+          <view>
+            <text class='text-sm grays-text' >2018年10月14日</text>
+          </view>
+        </view>
+    </view>
+
+    <view>
+      
+    </view>
+  </view>
+
+  
+  <view class="bar bottomfix  justify-center mb-df" >
+    <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
+    <button class='btn textColors round basis-df mr-df'>分享</button>
+  </view>
+</scroll-view>

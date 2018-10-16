@@ -1,0 +1,4 @@
+<!--pages/component/return/return.wxml-->
+<view class='fhs' catchtap='fhs'> 
+  <image class='btics' src='../../images/ico/left.png' ></image>
+</view>

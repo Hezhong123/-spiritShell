@@ -36,12 +36,24 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "页面",
-					"pathName": "pages/shell/shell"
+					"pathName": "pages/shell/shell",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "读取",
+					"pathName": "pages/getShell/getShell",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新建",
+					"pathName": "pages/postShell/postShell"
 				}
 			]
 		}
