@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/shell/shell",
     "pages/shop/shop",
+    "pages/goods/goods",
     "pages/getShell/getShell",
     "pages/postShell/postShell",
     "pages/logs/logs"

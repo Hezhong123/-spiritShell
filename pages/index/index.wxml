@@ -1,24 +1,27 @@
 <!--index.wxml-->
-<view>
+<wxs module="time" src="../../utils/time.wxs"></wxs>
 
+<view>
+  <moTr bind:myevent="onLogo" />
   <!-- 轮播内容 -->
   <view class='luns pt-sm'>
     <view class='rows pt-xl pl-xl pr-xl pt-df'>
-      <text class='text-xl ros1' >2018年10月1日</text>
+      <text class='text-xl ros1' >{{ time.times(titobj.time) }}</text>
     </view>
     <view class='rows pl-xl pr-xl pt-df' >
-      <text class='text-xl ros1'> 人活在世上  就是为了忍受摧残 \n 一直到死 想明了这一点 一切都能泰然处之。</text>
+      <text class='text-xl ros1'>{{titobj.text}}</text>
     </view>
     <view class='rows pt-df pr-xl pl-xl'>
-      <text class='text-sm'> --  摘自《黄金时代》第 3 条书签</text>
+      <text class='text-sm'> --  摘自《{{titobj.book}}》第 {{titobj.nums}} 条书签</text>
     </view>
   </view>
 
+
   <!-- 书签 -->
   <view class='book'>
-    <view class='bookItem' wx:for="{{[1,1,1,1]}}" bindtap='onPage' >
-      <image class='bookImg'></image>
-      <text class='text-df text2 gray-text'>精神の壳</text>
+    <view class='bookItem' wx:for="{{spirit}}" wx:key='id' bindtap='onPage' data-id='{{spirit[index].id}}'>
+      <image class='bookImg' src='{{spirit[index].fmImg}}'></image>
+      <text class='text-df text2 gray-text'>{{spirit[index].fmTextl}}</text>
     </view>
   </view>
 </view>

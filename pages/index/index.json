@@ -1,4 +1,8 @@
 {
+  "usingComponents": {
+    "moTr": "../../components/moTr/moTr"
+  },
+  "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
   "navigationBarTextStyle": "white"
 }

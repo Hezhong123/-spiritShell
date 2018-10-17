@@ -21,7 +21,7 @@ Component({
     // 返回
     fhs: function () {
       wx.navigateBack({
-        delta: 2
+        delta: 1
       })
     },
   }

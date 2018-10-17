@@ -1,0 +1,4 @@
+<!--pages/component/moTr/moTr.wxml-->
+<form  class='mots'  wx:if="{{logos}}" >
+  <button class='motBtn' open-type="getUserInfo" bindgetuserinfo='onlogin' >授权登录</button>
+</form>

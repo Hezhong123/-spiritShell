@@ -29,17 +29,40 @@ pages{
 
 .textRow{
   display: flex;
-  padding-top: 10px;
-  padding-left: 15px;
-  padding-bottom: 10px;
-  margin-bottom: 5px;
-  background-color: #fff;
+  padding-top: 60px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  background-color: #dd413a;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #ffffff;
 }
+
 .ds{
   width: 10px;
   height: 10px;
   border-radius:20px; 
-  background-color: #dd413a;
+  background-color: #ffffff;
   margin-right: 10px;
   margin-top: 7px;
+}
+.texts{
+  color: #ffffff;
+  width: 80vw;
+}
+
+.forms{
+  margin-top: 50px;
+}
+
+.textColors{
+  color: #fff;
+  height: 36px;
+  font-size: 1rem;
+  background-color: #dd413a;
+}
+
+.text2{
+  min-height: 160px;
 }

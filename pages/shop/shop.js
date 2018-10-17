@@ -7,6 +7,12 @@ Page({
   data: {
 
   },
+  
+  onGoods:function(){
+    wx.navigateTo({
+      url: '../../pages/goods/goods',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

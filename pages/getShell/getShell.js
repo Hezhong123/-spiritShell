@@ -1,4 +1,5 @@
 // pages/getShell/getShell.js
+import { getSell } from '../../utils/api.js'
 Page({
 
   /**
@@ -12,7 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    let id = options.id
+    getSell((res)=>{
+        console.log('data', res)
+        this.setData({
+          datas:res.data
+        })
+    }, { "recordID": id, "tableID": 54706 })
   },
 
   /**

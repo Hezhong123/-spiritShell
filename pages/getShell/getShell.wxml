@@ -1,22 +1,19 @@
 <!--pages/getShell/getShell.wxml-->
+<wxs module="time" src="../../utils/time.wxs"></wxs>
 <scroll-view>
   <retun></retun>
   <!-- <view class='fms'>
   </view> -->
 
   <swiper class='swiper-screen mb-df' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#dd413a">
-    <swiper-item class="fms" wx:for="1234">
-      <image class='itmimg' src="http://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill' />
+    <swiper-item class="fms" wx:for="{{datas.fmImg}}" wx:key='id'>
+      <image class='itmimg' src="{{datas.fmImg[index]}}" mode='widthFix' />
     </swiper-item>
   </swiper>
 
   <view class='bodys'>
-    <view class='mb-df'>
-      <text class='text-xl gray-text'> 标题速度速度</text>
-    </view>
-
     <view  class='mb-xl'>
-      <text class='text-df grays-text'> 标题速度速度 标题速度速度标题速度 \n \n 速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度标题速度速度\n 标题速度速度标题速度速度</text>
+      <text class='text-lg gray-text'> {{datas.text}} </text>
     </view>
     
     <view class='flex justify-end pt-xl'> 
@@ -26,7 +23,7 @@
             <text class='text-lg mt-xs  mr-sm textColor'>hez</text>
           </view>
           <view>
-            <text class='text-sm grays-text' >2018年10月14日</text>
+            <text class='text-sm grays-text' >{{ time.times(datas.created_at) }}</text>
           </view>
         </view>
     </view>

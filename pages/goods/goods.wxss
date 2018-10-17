@@ -1,0 +1,11 @@
+/* pages/goods/goods.wxss */
+pages{
+  background-color: #a8a8a8;
+}
+
+.textColors{
+  color: #fff;
+  height: 36px;
+  font-size: 1rem;
+  background-color: #dd413a;
+}

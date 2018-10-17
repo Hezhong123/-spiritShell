@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
-	"appid": "wxbd9864f25c83f2ed",
+	"appid": "wx3d53035ca787f453",
 	"projectname": "weg",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -36,24 +36,37 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 1,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "页面",
 					"pathName": "pages/shell/shell",
-					"query": ""
+					"query": "id=5bc6de58080fb71dc07205b3"
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "读取",
 					"pathName": "pages/getShell/getShell",
-					"query": ""
+					"query": "id=5bc6f382080fb72be772069b"
 				},
 				{
 					"id": -1,
 					"name": "新建",
-					"pathName": "pages/postShell/postShell"
+					"pathName": "pages/postShell/postShell",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店",
+					"pathName": "pages/shop/shop",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品",
+					"pathName": "pages/goods/goods",
+					"query": ""
 				}
 			]
 		}

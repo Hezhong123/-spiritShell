@@ -1,36 +1,32 @@
 //app.js
+import regeneratorRuntime from './utils/regenerator-runtime/runtime.js'
+
 App({
-  onLaunch: function () {
+  onLaunch: async function () {
+    require('./utils/sdk-v1.4.0 2.js')
+    // 初始化 SDK
+    let clientID = '488ecbf8acbeedaa7982'
+    wx.BaaS.init(clientID)
+    wx.hideTabBar({
+      animation:true
+    })
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
+    // 知晓云登陆
+    wx.BaaS.login().then((res) => {
+      // 用户允许授权，res 包含用户完整信息，详见下方描述
+      wx.BaaS.invokeFunction('userData', { userId: res.id }).then(res => {
+        console.log('登录', res)
+        getApp().globalData.userInfo = res.data.data
+      })
+    }, (res) => {
+      // 用户拒绝授权，res 包含基本用户信息：id、openid、unionid
+      // this.globalData.userInfo = res
+      this.globalData.logos = true
+      console.log('拒绝授权', res)
     })
   },
   globalData: {

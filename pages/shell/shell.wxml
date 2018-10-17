@@ -5,9 +5,9 @@
   <view class='fms'>
   </view>
 
-  <view class='textRow' wx:for="{{[1,1,1,1,1,1,1,1,1,1]}}">
+  <view class='textRow' wx:for="{{datali}}" wx:key= 'id'  >
     <view class='ds'></view>
-    <view class='text-xl gray-text text2 ' bindtap='onGetShel' >sdsdsdsdsdsds书签标题 {{index}}  </view>
+    <view class='text-xl gray-text text2 ' bindtap='onGetShel' data-id='{{datali[index].id}}' > {{datali[index].text}}  </view>
   </view>
 
 </view>

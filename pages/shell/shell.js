@@ -1,16 +1,19 @@
 // pages/shell/shell.js
+import { getSell, getSellLi} from '../../utils/api.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    datas:"",
+    datali:""
   },
 
-  onGetShel: function(){
+  onGetShel: function(e){
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../../pages/getShell/getShell',
+      url: '../../pages/getShell/getShell?id='+id,
     })
   },
 
@@ -18,7 +21,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    let id = options.id
+    getSell((res)=>{
+        console.log('内容', res)
+        getSellLi((r)=>{
+            console.log('列表', r)
+            this.setData({
+              datali: r.data.objects
+            })
+        }, { arrys : res.data.shell})
+    }, { "recordID": id, "tableID": 54709})
   },
 
   /**
