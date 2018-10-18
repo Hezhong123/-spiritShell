@@ -18,7 +18,8 @@ Page({
     getShellRos((res)=>{
         console.log('datas', res.data)
         this.setData({
-          datas:res.data
+          datas: res.data,
+          zts: res.data.zt
         })
     }, { "recordID": id, "tableID": 54706 })
   },

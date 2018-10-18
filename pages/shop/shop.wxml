@@ -11,7 +11,7 @@
       <image class='bookImg'></image>
       <text class='text-df text2 gray-text'>{{datas[index].title}}</text>
       <view class='goods-list-price'>{{datas[index].prie}}
-        <text class='gray-text'>{{datas[index].pireS}}</text>
+        <!-- <text class='gray-text'>{{datas[index].pireS}}</text> -->
       </view>
     </view>
   </view>

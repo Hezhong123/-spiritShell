@@ -41,7 +41,7 @@
 
 
 <!-- 写入 -->
-<scroll-view class='getShell' wx:if="{{zts}}">
+<scroll-view class='getShell' wx:if="{{!zts}}">
   <retun></retun>
 
   <form class='forms'>
