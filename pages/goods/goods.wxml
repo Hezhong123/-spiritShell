@@ -9,6 +9,6 @@
   <text> {{datas.title}}111</text>
   <view class="bars bottomfix  justify-center mb-df" >
     <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
-    <button class='btn textColors round basis-df mr-df'>立即支付</button>
+    <button class='btn textColors round basis-df mr-df' bindtap='onBtn'>立即支付</button>
   </view>
 </view>

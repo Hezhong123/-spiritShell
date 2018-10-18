@@ -10,6 +10,26 @@ Page({
   data: {
 
   },
+  rwm:function(){
+    const params = {
+      path: '../user/index?id=123456',
+      width: 250
+    }
+
+    // 获取二维码的 base64
+    wx.BaaS.getWXACode('wxacode', params).then(res => {
+      // this.setData({ imageBase64: res.image })
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+
+  },
+
+  // 购买
+  onBtn: function(){
+    this.rwm()
+  },
 
   /**
    * 生命周期函数--监听页面加载
