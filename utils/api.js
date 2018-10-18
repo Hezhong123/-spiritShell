@@ -50,3 +50,29 @@ export const getSellLi  = (cd, obj) => {
     wx.hideLoading()
   })
 }
+
+
+
+// 店
+// 获取商品分类
+export const getGoodsLI = (cd, obj) => {
+  wx.showLoading({
+    title: '稍等',
+  })
+  wx.BaaS.invokeFunction('getGoodsLI', obj).then(res => {
+    cd(res.data)
+    wx.hideLoading()
+  })
+}
+
+// 商品内容
+export const getGoodsRow = (cd, obj) => {
+  wx.showLoading({
+    title: '稍等',
+  })
+  wx.BaaS.invokeFunction('getGoodsRow', obj).then(res => {
+    cd(res.data)
+    wx.hideLoading()
+  })
+}
+

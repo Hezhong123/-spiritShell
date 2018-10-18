@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -63,10 +63,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "商品",
 					"pathName": "pages/goods/goods",
-					"query": ""
+					"query": "id=1539770718034719"
 				}
 			]
 		}

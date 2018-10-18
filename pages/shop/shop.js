@@ -1,4 +1,8 @@
 // pages/shop/shop.js
+
+const app = getApp()
+import { getGoodsLI } from '../../utils/api.js'
+
 Page({
 
   /**
@@ -8,9 +12,11 @@ Page({
 
   },
   
-  onGoods:function(){
+  onGoods:function(e){
+    let id = e.currentTarget.dataset.id
+    // console.log(id)
     wx.navigateTo({
-      url: '../../pages/goods/goods',
+      url: '../../pages/goods/goods?id='+id,
     })
   },
 
@@ -18,7 +24,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    getGoodsLI((res)=>{
+      this.setData({
+        datas: res.data.objects
+      })
+      console.log('datas', res.data.objects )
+    },)
   },
 
   /**

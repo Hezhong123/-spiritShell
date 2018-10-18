@@ -7,11 +7,11 @@
 
   <!-- 书签 -->
   <view class='book'>
-    <view class='bookItem' wx:for="{{[1]}}" bindtap='onGoods' >
+    <view class='bookItem' wx:for="{{datas}}" wx:key="id" bindtap='onGoods' data-id='{{datas[index].id}}' >
       <image class='bookImg'></image>
-      <text class='text-df text2 gray-text'>精神の壳</text>
-      <view class='goods-list-price'>6
-        <text class='gray-text'>15</text>
+      <text class='text-df text2 gray-text'>{{datas[index].title}}</text>
+      <view class='goods-list-price'>{{datas[index].prie}}
+        <text class='gray-text'>{{datas[index].pireS}}</text>
       </view>
     </view>
   </view>

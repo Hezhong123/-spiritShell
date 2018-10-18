@@ -34,8 +34,8 @@ Page({
       getSpirit((rei)=>{
         let dats = rei.data.objects //精神
        
-        let num1 = randomFrom(0, dats.length)
-        console.log('加载', num1, dats )
+        let num1 = randomFrom(0, dats.length-1)
+        console.log('选择壳', num1, dats, dats.length )
         this.setData({
           spirit: rei.data.objects
           // 获取随机标题
@@ -45,8 +45,9 @@ Page({
        
         if (key){
           const shellNum = key.shell.length  //第几条书签
-          const shell = key.shell[randomFrom(0, shellNum)]
-          console.log(shell)
+          console.log(key.shell.length)
+          const shell = key.shell[randomFrom(0, shellNum)-1]
+         
           if (shell){
             getSell((r) => {
               console.log('壳', shellNum,  r)

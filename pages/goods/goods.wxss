@@ -9,3 +9,12 @@ pages{
   font-size: 1rem;
   background-color: #dd413a;
 }
+.bars{
+  width: 100vw;
+  position: fixed;
+    bottom: 0;
+  /* background:#fff; */
+  display: flex;
+  align-items:center;
+
+}

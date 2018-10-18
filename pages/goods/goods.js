@@ -1,4 +1,7 @@
 // pages/goods/goods.js
+const app = getApp()
+import { getGoodsRow } from '../../utils/api.js'
+const wxParser = require('../../wxParser/index')
 Page({
 
   /**
@@ -12,7 +15,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    let id = options.id
+    getGoodsRow((res)=>{
+      console.log('datas', res)
+      this.setData({
+        datas:res.data
+      })
+      wxParser.parse({
+        bind: 'richText',
+        html: res.data.content,
+        target: this,
+        enablePreviewImage: false, // 禁用图片预览功能
+        tapLink: (url) => { // 点击超链接时的回调函数
+          // url 就是 HTML 富文本中 a 标签的 href 属性值
+          // 这里可以自定义点击事件逻辑，比如页面跳转
+          wx.navigateTo({
+            url
+          });
+        }
+      });
 
+    }, { richTextID: id})
   },
 
   /**
