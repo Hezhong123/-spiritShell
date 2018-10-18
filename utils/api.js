@@ -1,8 +1,13 @@
-// 随机数
-export const randomFrom = (lowerValue, upperValue) => {
-   return Math.floor(Math.random() * (upperValue - lowerValue + 1) + lowerValue);x.hideLoading()
+// 获取随机笔记
+export const getShellTit = (cd, obj) => {
+  wx.showLoading({
+    title: '回忆',
+  })
+  wx.BaaS.invokeFunction('getShellTit', obj).then(res => {
+    cd(res.data)
+    wx.hideLoading()
+  })
 }
-
 
 // 用户信息
 export const userData = (cd, obj) => {
@@ -35,6 +40,17 @@ export const getSell = (cd, obj) => {
     title: '马上',
   })
   wx.BaaS.invokeFunction('getSell', obj).then(res => {
+    cd(res.data)
+    wx.hideLoading()
+  })
+}
+
+// 更具id查找
+export const getShellRos = (cd, obj) => {
+  wx.showLoading({
+    title: '马上',
+  })
+  wx.BaaS.invokeFunction('getShellRos', obj).then(res => {
     cd(res.data)
     wx.hideLoading()
   })
@@ -75,4 +91,7 @@ export const getGoodsRow = (cd, obj) => {
     wx.hideLoading()
   })
 }
+
+
+
 

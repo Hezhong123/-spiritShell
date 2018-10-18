@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "retun": "../../components/return/return"
+    "retun": "../../components/return/return",
+    "postShell": "../postShell/postShell"
   },
   "navigationBarTextStyle": "white"
 }

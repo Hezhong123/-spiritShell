@@ -1,10 +1,9 @@
 <!--pages/getShell/getShell.wxml-->
 <wxs module="time" src="../../utils/time.wxs"></wxs>
-<scroll-view>
-  <retun></retun>
-  <!-- <view class='fms'>
-  </view> -->
+<!-- 读取 -->
+<scroll-view wx:if="{{zts}}">
 
+  <retun></retun>
   <swiper class='swiper-screen mb-df' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#dd413a">
     <swiper-item class="fms" wx:for="{{datas.fmImg}}" wx:key='id'>
       <image class='itmimg' src="{{datas.fmImg[index]}}" mode='widthFix' />
@@ -19,11 +18,11 @@
     <view class='flex justify-end pt-xl'> 
         <view>
           <view class='flex justify-end mb-sm align-center'>
-            <image src='http://image.weilanwl.com/img/square-2.jpg' mode='widthFix' class='round mr-sm img-sm'></image>
-            <text class='text-lg mt-xs  mr-sm textColor'>hez</text>
+            <image src='{{datas.userImg}}' mode='widthFix' class='round mr-sm img-sm'></image>
+            <text class='text-lg mt-xs  mr-sm textColor'>{{datas.userName}}</text>
           </view>
           <view>
-            <text class='text-sm grays-text' >{{ time.times(datas.created_at) }}</text>
+            <text class='text-sm grays-text' >{{time.times(datas.created_at) }}</text>
           </view>
         </view>
     </view>
@@ -38,4 +37,35 @@
     <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
     <button class='btn textColors round basis-df mr-df'>分享</button>
   </view>
+</scroll-view>
+
+
+<!-- 写入 -->
+<scroll-view class='getShell' wx:if="{{zts}}">
+  <retun></retun>
+
+  <form class='forms'>
+
+      <view class='textRow'>
+        <!-- <view class='ds'></view> -->
+        <!-- <view class='text-xl gray-text text2 ' bindtap='onGetShel'>图片上传</view> -->
+        <!-- <input class='text-xl  texts' placeholder-style="color: #ffffff; font-size: 0.9rem;" type="text" placeholder="编辑书签标题"></input> -->
+      </view>
+    
+      <view class="lattice-image rows">
+        <view wx:for="{{[1,1,1,1,1,1,1]}}" wx:if="{{0}}">
+          <image src='http://image.weilanwl.com/img/4x3-1.jpg' mode='aspectFill'></image>
+          <view class='iconfont icon-close'></view>
+        </view>
+        <view class='lattice-btn'>
+          <text class='iconfont icon-cameraadd'></text>
+        </view>
+      </view>
+
+      <textarea class='text-lg grays-text text2 rows mt-df lts' cursor-spacing="10" auto-height="true" placeholder='内容输入' maxlength="-1"></textarea>
+      <view class="bar  justify-center mb-df mt-xl" >
+        <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
+        <button class='btn textColors round basis-df mr-df'>保存</button>
+      </view>
+  </form>
 </scroll-view>

@@ -6,13 +6,13 @@
   <!-- 轮播内容 -->
   <view class='luns pt-sm'>
     <view class='rows pt-xl pl-xl pr-xl pt-df'>
-      <text class='text-xl ros1' >{{ time.times(titobj.time) }}</text>
+      <text class='text-xl ros1' >{{ time.times(titobj.created_at) }}</text>
     </view>
     <view class='rows pl-xl pr-xl pt-df' >
       <text class='text-xl ros1'>{{titobj.text}}</text>
     </view>
     <view class='rows pt-df pr-xl pl-xl'>
-      <text class='text-sm'> --  摘自《{{titobj.book}}》第 {{titobj.nums}} 条书签</text>
+      <text class='text-sm'> --  摘自《{{titobj.bookName}}》第 {{titobj.bookIndex}} 条书签</text>
     </view>
   </view>
 

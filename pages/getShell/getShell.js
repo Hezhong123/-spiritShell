@@ -1,12 +1,12 @@
 // pages/getShell/getShell.js
-import { getSell } from '../../utils/api.js'
+import { getShellRos } from '../../utils/api.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    zts:true
   },
 
   /**
@@ -15,8 +15,8 @@ Page({
   onLoad: function (options) {
     console.log(options)
     let id = options.id
-    getSell((res)=>{
-        console.log('data', res)
+    getShellRos((res)=>{
+        console.log('datas', res.data)
         this.setData({
           datas:res.data
         })

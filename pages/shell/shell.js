@@ -25,13 +25,10 @@ Page({
     let id = options.id
     getSell((res)=>{
         console.log('内容', res)
-        getSellLi((r)=>{
-            console.log('列表', r)
-            this.setData({
-              datali: r.data.objects
-            })
-        }, { arrys : res.data.shell})
-    }, { "recordID": id, "tableID": 54709})
+        this.setData({
+          datali: res.data.objects
+        })
+    }, { "bookid": id, "tableID": 54706})
   },
 
   /**

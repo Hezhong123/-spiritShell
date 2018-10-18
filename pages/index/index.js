@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-import { userData, getSpirit, getSell , randomFrom } from '../../utils/api.js'
+import { userData, getSpirit, getSell, randomFrom , getShellTit } from '../../utils/api.js'
 
 Page({
 
@@ -12,7 +12,7 @@ Page({
     spirit:'', //精神
     titobj:{
       text: "人活在世上 \n  就是为了忍受摧残 一直到死 \n 想明了这一点 \n 一切都能泰然处之。",
-      time: 1537348740,
+      created_at: 1537348740,
       book: "説明書",
       nums:1
     }
@@ -27,43 +27,31 @@ Page({
     })
   },
 
+  //获取随机标题
+  Tit: function(e) {
+    getShellTit((res)=>{
+        console.log(res)
+        if(res){
+          this.setData({
+            titobj:res
+          })
+        }
+      wx.stopPullDownRefresh()
+    }, { "userID": e})
+  },
+
   // 登录
   onLogo: function (e) {
     userData((res) => {
       console.log('用户信息', res)
+      this.Tit(res.data.id)
       getSpirit((rei)=>{
         let dats = rei.data.objects //精神
-       
-        let num1 = randomFrom(0, dats.length-1)
-        console.log('选择壳', num1, dats, dats.length )
+        console.log('用户精神集',dats )
         this.setData({
           spirit: rei.data.objects
-          // 获取随机标题
         })
-        const key = dats[num1]  //随机选中的精神
-        console.log('精神',key)
-       
-        if (key){
-          const shellNum = key.shell.length  //第几条书签
-          console.log(key.shell.length)
-          const shell = key.shell[randomFrom(0, shellNum)-1]
-         
-          if (shell){
-            getSell((r) => {
-              console.log('壳', shellNum,  r)
-              let obj = {
-                text: r.data.text,
-                time: r.data.created_at,
-                book: key.fmTextl,
-                nums: shellNum
-              }
-              this.setData({
-                titobj: obj
-              })
-            }, { "recordID": shell, "tableID": 54706})
-          }
-          
-        }
+
       }, { userId: res.data.id})
       app.globalData.userInfo = res.data
       wx.stopPullDownRefresh()
@@ -115,7 +103,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.onLogo()
+    this.Tit(app.globalData.userInfo.id)
+    getSpirit((rei) => {
+      let dats = rei.data.objects //精神
+      console.log('用户精神集', dats)
+      this.setData({
+        spirit: rei.data.objects
+      })
+
+    }, { userId: res.data.id })
   },
 
   /**

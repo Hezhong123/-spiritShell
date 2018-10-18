@@ -5,7 +5,7 @@
   <view class='fms'>
   </view>
 
-  <view class='textRow' wx:for="{{datali}}" wx:key= 'id'  >
+  <view class='textRow' wx:for="{{datali}}" wx:key= 'id' wx:if = "{{datali[index].zt}}">
     <view class='ds'></view>
     <view class='text-xl gray-text text2 ' bindtap='onGetShel' data-id='{{datali[index].id}}' > {{datali[index].text}}  </view>
   </view>

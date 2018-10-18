@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
@@ -48,7 +48,7 @@
 					"id": 1,
 					"name": "读取",
 					"pathName": "pages/getShell/getShell",
-					"query": "id=5bc6f382080fb72be772069b"
+					"query": "id=5bc856728e31f564d963abdb"
 				},
 				{
 					"id": -1,
