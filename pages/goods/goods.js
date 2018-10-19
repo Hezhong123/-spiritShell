@@ -12,12 +12,12 @@ Page({
   },
   rwm:function(){
     const params = {
-      path: '../user/index?id=123456',
-      width: 250
+      scene: '121212sdds2323s',
+      page: 'pages/getShell/getShell',
+      width: 50
     }
 
-    // 获取二维码的 base64
-    wx.BaaS.getWXACode('wxacode', params).then(res => {
+    wx.BaaS.getWXACode('wxacodeunlimit', params, true).then(res => {
       // this.setData({ imageBase64: res.image })
       console.log(res)
     }).catch(err => {

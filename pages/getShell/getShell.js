@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    let id = options.id
+    let id = options.id || options.scene
     getShellRos((res)=>{
         console.log('datas', res.data)
         this.setData({

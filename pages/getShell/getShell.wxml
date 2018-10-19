@@ -53,11 +53,11 @@
       </view>
     
       <view class="lattice-image rows">
-        <view wx:for="{{[1,1,1,1,1,1,1]}}" wx:if="{{0}}">
+        <view wx:for="{{[1,1,1,1,1,1,1]}}" wx:key="id" wx:if="{{0}}">
           <image src='http://image.weilanwl.com/img/4x3-1.jpg' mode='aspectFill'></image>
           <view class='iconfont icon-close'></view>
         </view>
-        <view class='lattice-btn'>
+        <view class='lattice-btn' bindtap='postImg'>
           <text class='iconfont icon-cameraadd'></text>
         </view>
       </view>
