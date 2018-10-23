@@ -92,6 +92,13 @@ export const getGoodsRow = (cd, obj) => {
   })
 }
 
-
-
-
+// 新的订单
+export const postSpirit = (cd, obj) => {
+  wx.showLoading({
+    title: '制造本子',
+  })
+  wx.BaaS.invokeFunction('postSpirit', obj).then(res => {
+    cd(res.data)
+    wx.hideLoading()
+  })
+}

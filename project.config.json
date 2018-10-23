@@ -42,13 +42,13 @@
 					"id": 0,
 					"name": "页面",
 					"pathName": "pages/shell/shell",
-					"query": "id=5bc6de58080fb71dc07205b3"
+					"query": "id=5bcd23e158c65304164e6dd5"
 				},
 				{
 					"id": 1,
 					"name": "读取",
 					"pathName": "pages/getShell/getShell",
-					"query": "id=5bc97ee60bf67e14c219d123"
+					"query": "scene=5bcd23e21941a10769a491e8"
 				},
 				{
 					"id": -1,

@@ -1,13 +1,65 @@
 <!--pages/shell/shell.wxml-->
 <view>
-  <retun></retun>
 
-  <view class='fms'>
+  
+  <view wx:if='{{!bj}}'>
+    <retun></retun>
+    <view class='fms'  >
+      <view class='titbts'>
+        <text class='text-xl gray-text titls'  >{{title.fmTextl}}</text>
+      </view>
+      <image src='{{title.btImg}}' style='width:100%;height:160px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;' mode='aspectFill'></image>
+      <view class='btns flex justify-center align-center mr-sm'>
+        <button bindtap='onBtns' class='gray btn lg block  round mr-sm mb-xs'>
+          <text class='iconfont icon-appreciate mr-xs'></text> 编辑
+        </button>
+      </view>
+    </view>
+    
+    <view class='textRow' wx:for="{{datali}}" wx:key= 'id' wx:if = "{{datali[index].zt}}">
+      <view class='ds'></view>
+      <text class='text-xl grays-text text2s' bindtap='onGetShel' data-id='{{datali[index].id}}' > {{datali[index].text}}  </text>
+    </view>
   </view>
+  
 
-  <view class='textRow' wx:for="{{datali}}" wx:key= 'id' wx:if = "{{datali[index].zt}}">
-    <view class='ds'></view>
-    <view class='text-xl gray-text text2 ' bindtap='onGetShel' data-id='{{datali[index].id}}' > {{datali[index].text}}  </view>
-  </view>
+
+  <!-- 写入 -->
+  <scroll-view class='getShell' wx:if="{{bj}}">
+    <retun wx:if='{{!bj}}' ></retun>
+
+    <view class='fmss'  >
+      <view class='titbts1' bindtap='noBj'>
+        <text class='text-xl gray-text titls'  >取消</text>
+      </view>
+    </view>
+    <form class='forms' report-submit="true" bindsubmit="onShell">
+
+        <view class='textRow'>
+          <!-- <view class='ds'></view> -->
+          <!-- <view class='text-xl gray-text text2 ' bindtap='onGetShel'>图片上传</view> -->
+          <!-- <input class='text-xl  texts' placeholder-style="color: #ffffff; font-size: 0.9rem;" type="text" placeholder="编辑书签标题"></input> -->
+        </view>
+      
+        <view class="lattice-image rows">
+          <view wx:if="{{imgShow}}" >
+            <image src='{{imgArr[0]}}' mode='aspectFill'></image>
+            <view class='iconfont icon-close' bindtap='rmImg' data-index='{{index}}' ></view>
+          </view>
+          <view class='lattice-btn' bindtap='postImg' wx:if="{imgArr.length == 1}}">
+            <text class='iconfont icon-cameraadd'></text>
+          </view>
+        </view>
+
+        <input name="textarea" value='{{title.fmTextl}}'  class=' inpust text-lg grays-text rows mt-df lts' auto-height="true" placeholder='输入书本标题' maxlength="-1"></input>
+
+        <!-- <switch color="#dd413a" name="switch"/> -->
+        
+        <view class="bar  justify-center mb-df mt-xl" >
+          <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
+          <button formType="submit" class='btn textColors round basis-df mr-df'>更新</button>
+        </view>
+    </form>
+  </scroll-view>
 
 </view>

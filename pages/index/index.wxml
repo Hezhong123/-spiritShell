@@ -20,7 +20,7 @@
   <!-- 书签 -->
   <view class='book'>
     <view class='bookItem' wx:for="{{spirit}}" wx:key='id' bindtap='onPage' data-id='{{spirit[index].id}}'>
-      <image class='bookImg' src='{{spirit[index].fmImg}}'></image>
+      <image class='bookImg' mode='scaleToFill' src='{{spirit[index].fmImg}}'></image>
       <text class='text-df text2 gray-text'>{{spirit[index].fmTextl}}</text>
     </view>
   </view>

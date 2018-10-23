@@ -111,7 +111,7 @@ Page({
         spirit: rei.data.objects
       })
 
-    }, { userId: res.data.id })
+    }, { userId: app.globalData.userInfo.id })
   },
 
   /**

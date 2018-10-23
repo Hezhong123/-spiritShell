@@ -6,7 +6,7 @@
   <retun></retun>
   <swiper class='swiper-screen mb-df' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#dd413a">
     <swiper-item class="fms" wx:for="{{datas.fmImg}}" wx:key='id'>
-      <image class='itmimg' src="{{datas.fmImg[index]}}" mode='widthFix' />
+      <image class='itmimg' bindtap='ylImg' data-index='{{index}}' src="{{datas.fmImg[index]}}" mode='aspectFill' />
     </swiper-item>
   </swiper>
 
@@ -22,7 +22,7 @@
             <text class='text-lg mt-xs  mr-sm textColor'>{{datas.userName}}</text>
           </view>
           <view>
-            <text class='text-sm grays-text' >{{time.times(datas.created_at) }}</text>
+            <text class='text-sm grays-text' >{{time.times(datas.updated_at) }}</text>
           </view>
         </view>
     </view>
@@ -35,7 +35,7 @@
   
   <view class="bar bottomfix  justify-center mb-df" >
     <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
-    <button class='btn textColors round basis-df mr-df'>分享</button>
+    <button bindtap='onFx' open-type="share" class='btn textColors round basis-df mr-df'>分享</button>
   </view>
 </scroll-view>
 
@@ -44,7 +44,7 @@
 <scroll-view class='getShell' wx:if="{{!zts}}">
   <retun></retun>
 
-  <form class='forms'>
+  <form class='forms' report-submit="true" bindsubmit="onShell">
 
       <view class='textRow'>
         <!-- <view class='ds'></view> -->
@@ -53,19 +53,22 @@
       </view>
     
       <view class="lattice-image rows">
-        <view wx:for="{{[1,1,1,1,1,1,1]}}" wx:key="id" wx:if="{{0}}">
-          <image src='http://image.weilanwl.com/img/4x3-1.jpg' mode='aspectFill'></image>
-          <view class='iconfont icon-close'></view>
+        <view wx:for="{{imgArr}}" wx:key="id" wx:if="{{imgArr.length}}">
+          <image src='{{imgArr[index]}}' mode='aspectFill'></image>
+          <view class='iconfont icon-close' bindtap='rmImg' data-index='{{index}}' ></view>
         </view>
-        <view class='lattice-btn' bindtap='postImg'>
+        <view class='lattice-btn' bindtap='postImg' wx:if="{{getImgBtn}}">
           <text class='iconfont icon-cameraadd'></text>
         </view>
       </view>
 
-      <textarea class='text-lg grays-text text2 rows mt-df lts' cursor-spacing="10" auto-height="true" placeholder='内容输入' maxlength="-1"></textarea>
+      <textarea name="textarea"  class='text-lg grays-text text2 rows mt-df lts' cursor-spacing="10" auto-height="true" placeholder='内容输入' maxlength="-1"></textarea>
+
+      <!-- <switch color="#dd413a" name="switch"/> -->
+      
       <view class="bar  justify-center mb-df mt-xl" >
         <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
-        <button class='btn textColors round basis-df mr-df'>保存</button>
+        <button formType="submit" class='btn textColors round basis-df mr-df'>保存</button>
       </view>
   </form>
 </scroll-view>

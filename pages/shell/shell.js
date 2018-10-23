@@ -1,5 +1,7 @@
 // pages/shell/shell.js
+const app = getApp()
 import { getSell, getSellLi} from '../../utils/api.js'
+import regeneratorRuntime from '../../utils/regenerator-runtime/runtime.js'
 Page({
 
   /**
@@ -7,7 +9,12 @@ Page({
    */
   data: {
     datas:"",
-    datali:""
+    title:"",
+    datali:"",
+    getImgBtn:true,
+    imgArr:"",
+    bj:false,
+    imgShow:false
   },
 
   onGetShel: function(e){
@@ -17,12 +24,127 @@ Page({
     })
   },
 
+  onBtns:function(){
+    this.setData({
+      bj:true
+    })
+  },
+  // 图片上云
+  imgFile: async function (arrs, cd) {
+    let MyFile = new wx.BaaS.File()
+    let metaData = {
+      categoryID: '5bcee7be1e8ac81d1e2d766a',
+      categoryName: '书本封面'
+    }
+    let imgUrl = []
+    console.log('2323', arrs)
+    for (let i = 0; i < arrs.length; i++) {
+      await MyFile.upload({ filePath: arrs[i] }, metaData).then(res => {
+        console.log('yun' + i, res)
+        imgUrl.push(res.data.path)
+      }, err => {
+        console.log('3333', err)
+      })
+    }
+    let obj = await cd(imgUrl)
+
+
+
+  },
+
+  //查看图片
+  ylImg: function (e) {
+    let index = e.currentTarget.dataset.index
+    console.log(e)
+    wx.previewImage({
+      current: this.data.datas.fmImg[index], // 当前显示图片的http链接
+      urls: this.data.datas.fmImg // 需要预览的图片http链接列表
+    })
+  },
+
+  //上传图片
+  postImg: function () {
+    const thit = this
+
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        thit.setData({
+          imgArr: tempFilePaths,
+          imgShow:true
+        })
+        console.log('选择', tempFilePaths.length)
+      }
+    })
+  },
+
+  // 删除图片
+  rmImg: function (e) {
+    console.log(e)
+    let index = e.currentTarget.dataset.index
+    let imgArr = this.data.imgArr
+    imgArr.splice(index, 1)
+    console.log('rm', imgArr)
+    this.setData({
+      imgArr: imgArr
+    })
+  },
+
+  // 提交表单 
+  onShell: async function (e) {
+    let texts = e.detail.value.textarea
+    let fromID = e.detail.formId
+    this.imgFile(this.data.imgArr, (res) => {
+      console.log('图片上传成功', res)
+      let obj = {
+        tableID: 54709,
+        recordID: this.data.title.id,
+        obj: {
+          fmTextl: texts,
+          fmImg: res[0]
+        }
+      }     
+      // let add = { "tableID": "54709", "recordID": "5bcd23e158c65304164e6dd5", "obj": { "fmTextl": "你好呀", "fmImg": "22221111111" } }
+      if (res.length == 1 && texts!= '' ){
+        wx.BaaS.invokeFunction('upData', obj).then(res => {
+          console.log('跟新成功', res)
+           let objs = { id: this.data.title.id }
+           this.onLoad(objs)
+        })
+        console.log(1111, texts)
+      }
+    })
+    
+  },
+
+  // 推出编辑
+  noBj: function(){
+    this.setData({
+      bj: false
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options)
     let id = options.id
+
+    let obj = { "tableID": 54709, "recordID": id }
+    wx.BaaS.invokeFunction('getData', obj).then(res=>{
+      console.log('精神的壳', res)
+      this.setData({
+        title:res.data.data,
+        bj: false
+      })
+    })
+
     getSell((res)=>{
         console.log('内容', res)
         this.setData({

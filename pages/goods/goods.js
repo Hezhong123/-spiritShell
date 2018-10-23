@@ -1,6 +1,6 @@
 // pages/goods/goods.js
 const app = getApp()
-import { getGoodsRow } from '../../utils/api.js'
+import { getGoodsRow, postSpirit } from '../../utils/api.js'
 const wxParser = require('../../wxParser/index')
 Page({
 
@@ -26,9 +26,49 @@ Page({
 
   },
 
+
+  // 支付订单
+  paly:function(){
+    let params = {
+      totalCost: 0.01,
+      merchandiseDescription: '深蓝色秋裤'
+    }
+
+    wx.BaaS.pay(params).then(res => {
+      console.log(res)
+      const obj = {
+        obj: {
+          "userId": app.globalData.userInfo.id,
+          "fmImg": this.data.datas.cover.path,
+          "fmTextl": this.data.datas.title
+        }
+      }
+      if (res.errMsg =='requestPayment:ok'){
+        postSpirit((res)=>{
+          console.log('订单状态:', res )
+        },obj)
+      }
+
+    }, err => {
+      // 未完成用户授权或发生网络异常等
+      console.log(err)
+    })
+  },
+
   // 购买
   onBtn: function(){
-    this.rwm()
+    this.paly()
+    // const obj = {
+    //   obj: {
+    //     "userId": app.globalData.userInfo.id,
+    //     "fmImg": this.data.datas.cover.path,
+    //     "fmTextl": this.data.datas.title
+    //   }
+    // }
+    // console.log('订单状态', obj )
+    // postSpirit((res) => {
+    //   console.log('订单状态:', res)
+    // }, obj)
   },
 
   /**
