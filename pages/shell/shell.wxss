@@ -3,7 +3,7 @@
 @import "../getShell/getShell";
 
 pages{
-  background-color: #a8a8a8;
+  background-color: #a8a8a8; 
 }
 .fms{
   width: 100vw;

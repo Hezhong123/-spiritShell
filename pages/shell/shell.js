@@ -2,17 +2,18 @@
 const app = getApp()
 import { getSell, getSellLi} from '../../utils/api.js'
 import regeneratorRuntime from '../../utils/regenerator-runtime/runtime.js'
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
+    userId: '',
     datas:"",
     title:"",
     datali:"",
     getImgBtn:true,
-    imgArr:"",
+    imgArr:[],
     bj:false,
     imgShow:false
   },
@@ -129,6 +130,14 @@ Page({
   },
 
 
+  //预览海报
+  onArrImg:function(){
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: this.data.title.imgArr// 需要预览的图片http链接列表
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -139,9 +148,13 @@ Page({
     let obj = { "tableID": 54709, "recordID": id }
     wx.BaaS.invokeFunction('getData', obj).then(res=>{
       console.log('精神的壳', res)
+      let arrimgs = this.data.imgArr
+      arrimgs.push(res.data.data.fmImg)
       this.setData({
         title:res.data.data,
-        bj: false
+        bj: false,
+        imgArr: arrimgs,
+        userId: app.globalData.userInfo.id
       })
     })
 
@@ -151,6 +164,7 @@ Page({
           datali: res.data.objects
         })
     }, { "bookid": id, "tableID": 54706})
+
   },
 
   /**
@@ -164,7 +178,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**

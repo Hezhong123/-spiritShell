@@ -6,7 +6,7 @@
 
   <!-- 商品内容 -->
   <template is="wxParser" data="{{wxParserData:richText.nodes}}"/>
-  <text> {{datas.title}}111</text>
+  <text> {{datas.title}}</text>
   <view class="bars bottomfix  justify-center mb-df" >
     <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
     <button class='btn textColors round basis-df mr-df' bindtap='onBtn'>立即支付</button>

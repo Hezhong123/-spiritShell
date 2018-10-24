@@ -10,28 +10,12 @@ Page({
   data: {
 
   },
-  rwm:function(){
-    const params = {
-      scene: '121212sdds2323s',
-      page: 'pages/getShell/getShell',
-      width: 50
-    }
-
-    wx.BaaS.getWXACode('wxacodeunlimit', params, true).then(res => {
-      // this.setData({ imageBase64: res.image })
-      console.log(res)
-    }).catch(err => {
-      console.log(err)
-    })
-
-  },
-
-
+ 
   // 支付订单
   paly:function(){
     let params = {
-      totalCost: 0.01,
-      merchandiseDescription: '深蓝色秋裤'
+      totalCost: this.data.datas.prie,
+      merchandiseDescription: this.data.datas.title
     }
 
     wx.BaaS.pay(params).then(res => {
@@ -58,17 +42,8 @@ Page({
   // 购买
   onBtn: function(){
     this.paly()
-    // const obj = {
-    //   obj: {
-    //     "userId": app.globalData.userInfo.id,
-    //     "fmImg": this.data.datas.cover.path,
-    //     "fmTextl": this.data.datas.title
-    //   }
-    // }
-    // console.log('订单状态', obj )
-    // postSpirit((res) => {
-    //   console.log('订单状态:', res)
-    // }, obj)
+
+    
   },
 
   /**

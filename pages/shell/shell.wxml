@@ -1,17 +1,22 @@
 <!--pages/shell/shell.wxml-->
-<view>
-
-  
+<view>  
   <view wx:if='{{!bj}}'>
     <retun></retun>
     <view class='fms'  >
       <view class='titbts'>
-        <text class='text-xl gray-text titls'  >{{title.fmTextl}}</text>
+        <text class='text-xl gray-text titls'  >{{title.fmTextl }}</text>
       </view>
-      <image src='{{title.btImg}}' style='width:100%;height:160px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;' mode='aspectFill'></image>
+      <image src='{{title.btImg}}' 
+       style='width:100%;height:160px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;' mode='aspectFill'></image>
       <view class='btns flex justify-center align-center mr-sm'>
-        <button bindtap='onBtns' class='gray btn lg block  round mr-sm mb-xs'>
+        <button  wx:if="{{userId == title.userId}}" bindtap='onBtns' style='color:#fff' class='gray btn sm hollow  block  round mr-sm mb-xs'>
           <text class='iconfont icon-appreciate mr-xs'></text> 编辑
+        </button>
+        <button wx:if="{{userId == title.userId}}" bindtap='onArrImg' style='color:#fff' class='gray btn sm hollow block  round mr-sm mb-xs'>
+          <text class='iconfont icon-appreciate mr-xs'></text> 打印
+        </button>
+         <button open-type="share" style='color:#fff' class='gray btn sm hollow block  round mr-sm mb-xs'>
+          <text class='iconfont icon-appreciate mr-xs'></text> 分享
         </button>
       </view>
     </view>
@@ -42,7 +47,7 @@
         </view>
       
         <view class="lattice-image rows">
-          <view wx:if="{{imgShow}}" >
+          <view wx:if="{{imgArr.length}}" >
             <image src='{{imgArr[0]}}' mode='aspectFill'></image>
             <view class='iconfont icon-close' bindtap='rmImg' data-index='{{index}}' ></view>
           </view>

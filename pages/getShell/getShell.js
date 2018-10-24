@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId:'',
     zts:true,
     imgArr: [],  //
     getImgBtn:true
@@ -22,7 +23,7 @@ Page({
       categoryName:'用户图片'
     }
     let imgUrl = []
-    console.log('2323',arrs)
+    console.log('即将上传图片',arrs)
     for(let i = 0;i<arrs.length;i++){
       await MyFile.upload({ filePath: arrs[i] }, metaData).then(res => {
         console.log('yun'+i, res)
@@ -32,9 +33,6 @@ Page({
       })
     }
     let obj = await cd(imgUrl)
-
-    
-
   },
 
   //查看图片
@@ -50,7 +48,6 @@ Page({
   //上传图片
   postImg: function(){
     const thit = this
-
     wx.chooseImage({
       count: 9,
       sizeType: ['original', 'compressed'],
@@ -59,17 +56,30 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
         let arrs = thit.data.imgArr
-        arrs.push(tempFilePaths)
+        for (let i = 0; i < tempFilePaths.length; i++){
+          arrs.push(tempFilePaths[i])
+        }
+        // 图片检测数量
+        if (thit.data.imgArr.length >=  9) {
+          thit.setData({
+            getImgBtn: false
+          })
+        }
         thit.setData({
-          imgArr: tempFilePaths
+          imgArr: arrs
         })
-        console.log(arrs)
+        // console.log(tempFilePaths)
       }
     })  
   },
 
   // 删除图片
   rmImg:function(e){
+    if (this.data.imgArr.length < 9) {
+      this.setData({
+        getImgBtn: true
+      })
+    }
     console.log(e)
     let index = e.currentTarget.dataset.index
     let imgArr = this.data.imgArr
@@ -109,6 +119,13 @@ Page({
     })
   },
 
+  //编辑页面
+  onBjs: function(){
+    this.setData({
+      zts:false
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -120,26 +137,18 @@ Page({
         console.log('datas', res.data)
         this.setData({
           datas: res.data,
-          zts: res.data.zt
+          zts: res.data.zt,
+          userId: app.globalData.userInfo.id,
+          imgArr: res.data.fmImg,
+          shellText: res.data.text
         })
     }, { "recordID": id, "tableID": 54706 })
   },
 
-
-  // 转发
-  onFx: function(){
-    wx.updateShareMenu({
-      withShareTicket: true,
-      success() {
-        
-      }
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

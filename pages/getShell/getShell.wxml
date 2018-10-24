@@ -3,7 +3,7 @@
 <!-- 读取 -->
 <scroll-view wx:if="{{zts}}">
 
-  <retun></retun>
+  <retun ids="{{datas.book}}"></retun>
   <swiper class='swiper-screen mb-df' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#dd413a">
     <swiper-item class="fms" wx:for="{{datas.fmImg}}" wx:key='id'>
       <image class='itmimg' bindtap='ylImg' data-index='{{index}}' src="{{datas.fmImg[index]}}" mode='aspectFill' />
@@ -35,6 +35,9 @@
   
   <view class="bar bottomfix  justify-center mb-df" >
     <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
+    <button  wx:if="{{userId == datas.userID}}" bindtap='onBjs' style='color:#dd413a' class='gray btn xl hollow  block  round mr-sm mb-xs'>
+      <text class='iconfont icon-appreciate mr-xs'></text>
+    </button>
     <button bindtap='onFx' open-type="share" class='btn textColors round basis-df mr-df'>分享</button>
   </view>
 </scroll-view>
@@ -53,7 +56,7 @@
       </view>
     
       <view class="lattice-image rows">
-        <view wx:for="{{imgArr}}" wx:key="id" wx:if="{{imgArr.length}}">
+        <view wx:for="{{imgArr}}" wx:key="id" >
           <image src='{{imgArr[index]}}' mode='aspectFill'></image>
           <view class='iconfont icon-close' bindtap='rmImg' data-index='{{index}}' ></view>
         </view>
@@ -62,7 +65,7 @@
         </view>
       </view>
 
-      <textarea name="textarea"  class='text-lg grays-text text2 rows mt-df lts' cursor-spacing="10" auto-height="true" placeholder='内容输入' maxlength="-1"></textarea>
+      <textarea name="textarea" value='{{shellText}}'  class='text-lg grays-text text2 rows mt-df lts' cursor-spacing="10" auto-height="true" placeholder='内容输入' maxlength="-1"></textarea>
 
       <!-- <switch color="#dd413a" name="switch"/> -->
       
