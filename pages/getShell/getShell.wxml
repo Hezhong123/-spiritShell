@@ -70,7 +70,7 @@
       <!-- <switch color="#dd413a" name="switch"/> -->
       
       <view class="bar  justify-center mb-df mt-xl" >
-        <button class='btn success round basis-xs mr-df'>按钮</button>
+        <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
         <button formType="submit" class='btn textColors round basis-df mr-df'>保存</button>
       </view>
   </form>

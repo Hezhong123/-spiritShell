@@ -101,6 +101,9 @@ Page({
 
   // 提交表单 
   onShell:async function(e){
+    wx.showLoading({
+      title: '保存中',
+    })
     let texts = e.detail.value.textarea
     let fromID = e.detail.formId
     this.imgFile(this.data.imgArr, (res) => {
