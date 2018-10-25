@@ -16,7 +16,6 @@
     </view>
   </view>
 
-
   <!-- 书签 -->
   <view class='book'>
     <view class='bookItem' wx:for="{{spirit}}" wx:key='id' bindtap='onPage' data-id='{{spirit[index].id}}'>

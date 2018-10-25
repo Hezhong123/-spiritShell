@@ -15,7 +15,7 @@ Page({
     getImgBtn:true,
     imgArr:[],
     bj:false,
-    imgShow:false
+    imgShow:false,
   },
 
   onGetShel: function(e){
@@ -129,12 +129,37 @@ Page({
     })
   },
 
-
   //预览海报
   onArrImg:function(){
-    wx.previewImage({
-      current: '', // 当前显示图片的http链接
-      urls: this.data.title.imgArr// 需要预览的图片http链接列表
+    let arrs = this.data.title.imgArr
+    const arrjs= []
+    for (let i in arrs){
+      this.dwImg(arrs[i],res=>{
+        console.log(res)
+        arrjs.push(res)
+      })
+    }
+    setTimeout(function(){
+      wx.previewImage({
+        current: '', // 当前显示图片的http链接
+        urls: arrjs // 需要预览的图片http链接列表
+      })
+    },1000)
+  },
+
+  // 下载预览图片
+  dwImg: function ( url,cd) {
+    console.log(1111, url)
+    wx.downloadFile({
+      url: url, //仅为示例，并非真实的资源
+      success(res) {
+        console.log('加载图片', res)
+        let imgs = res.tempFilePath
+        cd(imgs)
+      },
+      fail(err) {
+        console.log('22222', err)
+      }
     })
   },
 
@@ -144,7 +169,6 @@ Page({
   onLoad: function (options) {
     console.log(options)
     let id = options.id
-
     let obj = { "tableID": 54709, "recordID": id }
     wx.BaaS.invokeFunction('getData', obj).then(res=>{
       console.log('精神的壳', res)
@@ -156,6 +180,8 @@ Page({
         imgArr: arrimgs,
         userId: app.globalData.userInfo.id
       })
+      
+
     })
 
     getSell((res)=>{
@@ -171,7 +197,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**

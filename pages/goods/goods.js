@@ -21,7 +21,7 @@ Page({
     wx.BaaS.pay(params).then(res => {
       console.log(res)
       const obj = {
-         "userId": app.globalData.userInfo.id,
+         "userId": 1111,
           "fmImg": this.data.datas.cover.path,
           "fmTextl": this.data.datas.title
       }
@@ -37,11 +37,22 @@ Page({
     })
   },
 
+  // 生成海报
+  postbhs: function(){
+    const obj = {
+      "userId": app.globalData.userInfo.id,
+      "fmImg": this.data.datas.cover.path,
+      "fmTextl": this.data.datas.title
+    }
+    postSpirit((res) => {
+      console.log('订单状态:', res)
+    }, obj)
+  },
+
   // 购买
   onBtn: function(){
-    this.paly()
-
-    
+    // this.paly()
+    this.postbhs()
   },
 
   /**
