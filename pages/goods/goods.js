@@ -21,11 +21,9 @@ Page({
     wx.BaaS.pay(params).then(res => {
       console.log(res)
       const obj = {
-        obj: {
-          "userId": app.globalData.userInfo.id,
+         "userId": app.globalData.userInfo.id,
           "fmImg": this.data.datas.cover.path,
           "fmTextl": this.data.datas.title
-        }
       }
       if (res.errMsg =='requestPayment:ok'){
         postSpirit((res)=>{
