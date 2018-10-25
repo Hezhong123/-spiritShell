@@ -36,13 +36,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "页面",
 					"pathName": "pages/shell/shell",
-					"query": "id=5bd04652febc075c64b046fb"
+					"query": "id=5bd1332e6dba7c6341e2dfdd"
 				},
 				{
 					"id": 1,

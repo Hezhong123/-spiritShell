@@ -36,7 +36,7 @@
   <view class="bar bottomfix  justify-center mb-df" >
     <!-- <button class='btn success round basis-xs mr-df'>按钮</button> -->
     <button  wx:if="{{userId == datas.userID}}" bindtap='onBjs' style='color:#dd413a' class='gray btn xl hollow  block  round mr-sm mb-xs'>
-      <text class='iconfont icon-appreciate mr-xs'></text>
+      <text class='iconfont icon-write mr-xs'></text>
     </button>
     <button bindtap='onFx' open-type="share" class='btn textColors round basis-df mr-df'>分享</button>
   </view>
