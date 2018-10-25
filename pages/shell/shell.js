@@ -78,7 +78,7 @@ Page({
           imgArr: tempFilePaths,
           imgShow:true
         })
-        console.log('选择', tempFilePaths.length)
+        console.log('选择', tempFilePaths, res)
       }
     })
   },
@@ -110,7 +110,7 @@ Page({
         }
       }     
       // let add = { "tableID": "54709", "recordID": "5bcd23e158c65304164e6dd5", "obj": { "fmTextl": "你好呀", "fmImg": "22221111111" } }
-      if (res.length == 1 && texts!= '' ){
+      if (this.data.imgArr.length == 1 && texts!= '' ){
         wx.BaaS.invokeFunction('upData', obj).then(res => {
           console.log('跟新成功', res)
            let objs = { id: this.data.title.id }

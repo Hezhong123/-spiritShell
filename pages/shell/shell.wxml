@@ -47,15 +47,15 @@
         </view>
       
         <view class="lattice-image rows">
-          <view wx:if="{{imgArr.length}}" >
+          <view >
             <image src='{{imgArr[0]}}' mode='aspectFill'></image>
             <view class='iconfont icon-close' bindtap='rmImg' data-index='{{index}}' ></view>
           </view>
+          
           <view class='lattice-btn' bindtap='postImg' wx:if="{imgArr.length == 1}}">
             <text class='iconfont icon-cameraadd'></text>
           </view>
         </view>
-
         <input name="textarea" value='{{title.fmTextl}}'  class=' inpust text-lg grays-text rows mt-df lts' auto-height="true" placeholder='输入书本标题' maxlength="-1"></input>
 
         <!-- <switch color="#dd413a" name="switch"/> -->
