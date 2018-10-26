@@ -28,6 +28,7 @@ Page({
       if (res.errMsg =='requestPayment:ok'){
         postSpirit((res)=>{
           console.log('订单状态:', res )
+          this.postbhs()
         },obj)
       }
 
@@ -51,8 +52,8 @@ Page({
 
   // 购买
   onBtn: function(){
-    // this.paly()
-    this.postbhs()
+    this.paly()
+    
   },
 
   /**

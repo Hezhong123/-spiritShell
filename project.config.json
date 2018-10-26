@@ -36,19 +36,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "页面",
 					"pathName": "pages/shell/shell",
-					"query": "id=5bd163bd6dba7c2410ac8bfd"
+					"query": "id=5bd2cbd11a4c7e3114008285"
 				},
 				{
 					"id": 1,
 					"name": "读取",
 					"pathName": "pages/getShell/getShell",
-					"query": "scene=5bd1332f8e723b48009aaa5f"
+					"query": "scene=5bd2e8a3539c761d3f702d20"
 				},
 				{
 					"id": -1,

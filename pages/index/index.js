@@ -13,8 +13,8 @@ Page({
     titobj:{
       text: "人活在世上 \n  就是为了忍受摧残 一直到死 \n 想明了这一点 \n 一切都能泰然处之。",
       created_at: 1537348740,
-      book: "説明書",
-      nums:1
+      bookName: "説明書",
+      bookIndex:1
     }
   },
 
@@ -30,7 +30,7 @@ Page({
   //获取随机标题
   Tit: function(e) {
     getShellTit((res)=>{
-        console.log(res)
+        console.log('书签', res)
         if(res){
           this.setData({
             titobj:res

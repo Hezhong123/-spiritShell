@@ -48,9 +48,6 @@ Page({
       })
     }
     let obj = await cd(imgUrl)
-
-
-
   },
 
   //查看图片
@@ -132,35 +129,38 @@ Page({
   //预览海报
   onArrImg:function(){
     let arrs = this.data.title.imgArr
-    const arrjs= []
-    for (let i in arrs){
-      this.dwImg(arrs[i],res=>{
-        console.log(res)
-        arrjs.push(res)
-      })
-    }
-    setTimeout(function(){
-      wx.previewImage({
-        current: '', // 当前显示图片的http链接
-        urls: arrjs // 需要预览的图片http链接列表
-      })
-    },1000)
-  },
-
-  // 下载预览图片
-  dwImg: function ( url,cd) {
-    console.log(1111, url)
-    wx.downloadFile({
-      url: url, //仅为示例，并非真实的资源
-      success(res) {
-        console.log('加载图片', res)
-        let imgs = res.tempFilePath
-        cd(imgs)
+    console.log('333', arrs )
+    wx.showLoading({
+      title: '马上出现',
+    })
+    wx.previewImage({
+      current: '',
+      urls: arrs,
+      success:function(res){
+        wx.hideLoading()
       },
-      fail(err) {
-        console.log('22222', err)
+      fail:function(){
+        wx.hideLoading()
       }
     })
+    wx.hideLoading()
+    
+
+    // const arrjs= []
+    // for (let i in arrs){
+    //   this.dwImg(arrs[i],res=>{
+    //     console.log(res)
+    //     arrjs.push(res)
+    //   })
+    // }
+    // setTimeout(function(){
+    //   wx.previewImage({
+    //     // current: '', // 当前显示图片的http链接
+    //     // urls: arrjs // 需要预览的图片http链接列表
+    //     current: '',
+    //     urls: ['http://md-1251490080.cos.ap-chengdu.myqcloud.com/5bd285b53f1e361f41568d99']
+    //   })
+    // },1000)
   },
 
   /**
