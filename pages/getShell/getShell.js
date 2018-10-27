@@ -1,6 +1,6 @@
 // pages/getShell/getShell.js
 const app = getApp()
-import { getShellRos } from '../../utils/api.js'
+import { getShellRos, dwImg } from '../../utils/api.js'
 import regeneratorRuntime from '../../utils/regenerator-runtime/runtime.js'
 
 Page({
@@ -145,13 +145,32 @@ Page({
           imgArr: res.data.fmImg,
           shellText: res.data.text
         })
+
+        // 下载图片到本地
+        let arrs = []
+        for (let i in this.data.imgArr) {
+          dwImg(res=>{
+            console.log('下载本地', res)
+            arrs.push(res.tempFilePath)
+          }, this.data.imgArr[i])
+        }
+        let that = this
+        setTimeout(function(){
+          that.setData({
+            imgArr: arrs
+          })
+        },2000)
+
     }, { "recordID": id, "tableID": 54706 })
+
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
   },
 
   /**

@@ -2,13 +2,14 @@
 <view>
 
   <!-- 轮播内容 -->
-  <view class='luns' >
-  </view>
-
+  <!-- <view class='luns'>
+   
+  </view> -->
+  <image class='luns'  mode='aspectFill' src='https://cloud-minapp-21145.cloud.ifanrusercontent.com/1gCfidStucZYJ54l.jpg'></image>
   <!-- 书签 -->
   <view class='book'>
     <view class='bookItem' wx:for="{{datas}}" wx:key="id" bindtap='onGoods' data-id='{{datas[index].id}}' >
-      <image class='bookImg'></image>
+      <image class='bookImg' src='{{datas[index].cover.path}}'></image>
       <text class='text-df text2 gray-text'>{{datas[index].title}}</text>
       <view class='goods-list-price'>{{datas[index].prie}}
         <!-- <text class='gray-text'>{{datas[index].pireS}}</text> -->

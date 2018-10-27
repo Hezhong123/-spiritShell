@@ -102,3 +102,17 @@ export const postSpirit = (cd, obj) => {
     wx.hideLoading()
   })
 }
+
+// 下载图片到本地
+export const dwImg = (cd , obj) => {
+  wx.downloadFile({
+    url: obj, //仅为示例，并非真实的资源
+    success(res) {
+      // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+      cd(res)
+    },
+    fail(err){
+      cd('失败')
+    }
+  })
+}

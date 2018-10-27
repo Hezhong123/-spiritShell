@@ -4,7 +4,7 @@
 <view>
   <moTr bind:myevent="onLogo" />
   <!-- 轮播内容 -->
-  <view class='luns pt-sm'>
+  <view class='luns pt-sm'  bindtap='onShell' data-id='{{titobj.id}}'>
     <view class='rows pt-xl pl-xl pr-xl pt-df'>
       <text class='text-xl ros1' >{{ time.times(titobj.created_at) }}</text>
     </view>

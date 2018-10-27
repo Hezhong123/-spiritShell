@@ -28,6 +28,7 @@ Page({
       this.setData({
         datas: res.data.objects
       })
+      wx.stopPullDownRefresh()
       console.log('datas', res.data.objects )
     },)
   },
@@ -64,7 +65,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**

@@ -1,9 +1,9 @@
 /* pages/getShell/getShell.wxss */
 pages{
-  background-color: #a8a8a8;
+  background-color: #fefdf9;
 }
 .swiper-screen {
-  min-height: 160px;
+  min-height: 220px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }

@@ -1,6 +1,6 @@
 // pages/shell/shell.js
 const app = getApp()
-import { getSell, getSellLi} from '../../utils/api.js'
+import { getSell, getSellLi, dwImg} from '../../utils/api.js'
 import regeneratorRuntime from '../../utils/regenerator-runtime/runtime.js'
 
 Page({
@@ -144,23 +144,6 @@ Page({
       }
     })
     wx.hideLoading()
-    
-
-    // const arrjs= []
-    // for (let i in arrs){
-    //   this.dwImg(arrs[i],res=>{
-    //     console.log(res)
-    //     arrjs.push(res)
-    //   })
-    // }
-    // setTimeout(function(){
-    //   wx.previewImage({
-    //     // current: '', // 当前显示图片的http链接
-    //     // urls: arrjs // 需要预览的图片http链接列表
-    //     current: '',
-    //     urls: ['http://md-1251490080.cos.ap-chengdu.myqcloud.com/5bd285b53f1e361f41568d99']
-    //   })
-    // },1000)
   },
 
   /**

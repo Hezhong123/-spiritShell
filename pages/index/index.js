@@ -40,16 +40,23 @@ Page({
     }, { "userID": e})
   },
 
+  onShell:function(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../../pages/getShell/getShell?id=' + id,
+    })
+  },
+
   // 登录
   onLogo: function (e) {
     userData((res) => {
       console.log('用户信息', res)
       this.Tit(res.data.id)
       getSpirit((rei)=>{
-        let dats = rei.data.objects //精神
+        let dats = rei //精神
         console.log('用户精神集',dats )
         this.setData({
-          spirit: rei.data.objects
+          spirit: dats
         })
 
       }, { userId: res.data.id})
@@ -105,10 +112,10 @@ Page({
   onPullDownRefresh: function () {
     this.Tit(app.globalData.userInfo.id)
     getSpirit((rei) => {
-      let dats = rei.data.objects //精神
+      let dats = rei //精神
       console.log('用户精神集', dats)
       this.setData({
-        spirit: rei.data.objects
+        spirit: dats
       })
 
     }, { userId: app.globalData.userInfo.id })
