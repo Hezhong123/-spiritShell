@@ -22,5 +22,9 @@
       <image class='bookImg' mode='scaleToFill' src='{{spirit[index].fmImg}}'></image>
       <text class='text-df text2 gray-text'>{{spirit[index].fmTextl}}</text>
     </view>
+     <view class='bookItem' wx:key='id' bindtap='onPage' data-id='{{dbook.id}}'>
+      <image class='bookImg' mode='scaleToFill' src='{{dbook.fmImg}}'></image>
+      <text class='text-df text2 gray-text'> {{dbook.fmTextl}} </text>
+    </view>
   </view>
 </view>

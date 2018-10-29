@@ -1,8 +1,9 @@
 <!--pages/getShell/getShell.wxml-->
 <wxs module="time" src="../../utils/time.wxs"></wxs>
+<moTr bind:myevent="onLogo" />
 <!-- 读取 -->
 <scroll-view wx:if="{{zts}}">
-
+ 
   <retun ids="{{datas.book}}"></retun>
   <swiper class='swiper-screen mb-df' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#dd413a">
     <swiper-item class="fms" wx:for="{{datas.fmImg}}" wx:key='id'>

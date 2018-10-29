@@ -11,11 +11,13 @@ Page({
   data: {
     spirit:'', //精神
     titobj:{
-      text: "人活在世上 \n  就是为了忍受摧残 一直到死 \n 想明了这一点 \n 一切都能泰然处之。",
+      text: " 这是款很酷的app \n  不信，你可以看看说明书 \n ",
       created_at: 1537348740,
-      bookName: "説明書",
+      bookName: "说明书",
       bookIndex:1
-    }
+    },
+    dbook:"" //说明书
+    
   },
 
   // 壳
@@ -75,6 +77,17 @@ Page({
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
+    }) 
+    // 加载说明书
+    wx.showLoading({
+      title: '预备',
+    })
+    wx.BaaS.invokeFunction('getData', { tableID: 54709, recordID:"5bd332d8a1be2b1a3e1cfa34"}).then(res => {
+      console.log('说明书', res)
+      this.setData({
+        dbook: res.data.data
+      })
+      wx.hideLoading()
     })
   },
 

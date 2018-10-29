@@ -1,6 +1,6 @@
 // pages/getShell/getShell.js
 const app = getApp()
-import { getShellRos, dwImg } from '../../utils/api.js'
+import { getShellRos, dwImg, userData } from '../../utils/api.js'
 import regeneratorRuntime from '../../utils/regenerator-runtime/runtime.js'
 
 Page({
@@ -10,10 +10,22 @@ Page({
    */
   data: {
     userId:'',
+    id:"",  // 书签id
     zts:true,
     imgArr: [],  //
     getImgBtn:true
   }, 
+
+  // 登录
+  onLogo: function () {
+    userData((res) => {
+      console.log('用户信息', res)
+      this.getUserData(this.data.id)
+      app.globalData.userInfo = res.data
+      wx.stopPullDownRefresh()
+    }, { userId: app.globalData.userInfo.id })
+
+  },
 
   // 图片上云
   imgFile: async function(arrs,cd){
@@ -129,13 +141,8 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    console.log(options)
-
-    let id = options.id || decodeURIComponent(options.scene)
+  // 获取用户初始化数据
+  getUserData(id){
     getShellRos((res)=>{
         console.log('datas', res.data)
         this.setData({
@@ -162,8 +169,17 @@ Page({
         },2000)
 
     }, { "recordID": id, "tableID": 54706 })
+  },
 
-    
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let ids = options.id || decodeURIComponent(options.scene)
+    console.log('初始id:',ids)
+    this.setData({
+      id: ids
+    })  
   },
 
   /**
