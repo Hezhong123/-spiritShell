@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:"",  //书本id
     userId: '',
     datas:"",
     title:"",
@@ -160,6 +161,7 @@ Page({
       this.setData({
         title:res.data.data,
         bj: false,
+        id: id,
         imgArr: arrimgs,
         userId: app.globalData.userInfo.id
       })
@@ -187,7 +189,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    getSell((res) => {
+      console.log('内容', res)
+      this.setData({
+        datali: res.data.objects
+      })
+    }, { "bookid": this.data.id, "tableID": 54706 })
   },
 
   /**
