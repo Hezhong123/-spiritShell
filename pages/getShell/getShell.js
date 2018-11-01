@@ -106,8 +106,10 @@ Page({
   upShell:function(obj){
     wx.BaaS.invokeFunction('upShell', obj).then(res => {
       console.log('提交成功', res)
-      let obj = { scene: this.data.datas.id }
-      this.onLoad(obj)
+      this.setData({
+        zts:true
+      })
+      this.getUserData(this.data.datas.id)
     })
   },
 
